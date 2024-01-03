@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "itsstillexplosive",
+  "version": "${version}",
+  "name": "ItsStillExplosive",
+  "description": "Makes explosive items actually explosive",
+  "authors": [
+    "JustDoom"
+  ],
+  "contact": {
+    "sources": "https://github.com/JustDoom/ItsStillExplosive",
+    "issues": "https://github.com/JustDoom/ItsStillExplosive/issues"
+  },
+  "license": "MIT",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.imjustdoom.itsstillexplosive.fabric.ItsStillExplosiveFabric"
+    ]
+  },
+  "mixins": [
+    "itsstillexplosive-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.1"
+  }
+}

@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+issueTrackerURL = "https://github.com/JustDoom/ItsStillExplosive/issues"
+license = "MIT"
+
+[[mods]]
+modId = "itsstillexplosive"
+version = "${version}"
+displayName = "ItsStillExplosive"
+authors = "JustDoom"
+description = '''
+Makes explosive items actually explosive
+'''
+logoFile = "logo.png"
+
+[[dependencies.itsstillexplosive]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.itsstillexplosive]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"

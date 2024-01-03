@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.imjustdoom.itsstillexplosive.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ItemDestroyMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
