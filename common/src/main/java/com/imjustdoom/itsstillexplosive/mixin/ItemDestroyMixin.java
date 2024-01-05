@@ -17,11 +17,14 @@ public abstract class ItemDestroyMixin {
     public void onDestroyed(ItemEntity itemEntity, CallbackInfo ci) { // TODO: Account for tnt in shulker
 
         // TODO: config file to add custom modded items
-        if ((itemEntity.getItem().getItem() == Items.TNT || itemEntity.getItem().getItem() == Items.TNT_MINECART) && itemEntity.isOnFire()) {
+        if ((itemEntity.getItem().getItem() == Items.TNT
+                || itemEntity.getItem().getItem() == Items.TNT_MINECART
+                || itemEntity.getItem().getItem() == Items.GUNPOWDER)
+                && itemEntity.isOnFire()) {
             itemEntity.discard();
             if (!itemEntity.level().isClientSide) {
-
-                itemEntity.level().explode(null, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 1f + 0.75f * (float) Math.log(itemEntity.getItem().getCount()), Level.ExplosionInteraction.TNT);
+                float base = itemEntity.getItem().getItem() == Items.GUNPOWDER ? 0.2f : 0.75f;
+                itemEntity.level().explode(null, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 1f + base * (float) Math.log(itemEntity.getItem().getCount()), Level.ExplosionInteraction.TNT);
             }
         }
     }
