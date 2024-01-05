@@ -14,12 +14,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ItemDestroyMixin {
 
     @Inject(method = "onDestroyed", at = @At("HEAD"))
-    public void onDestroyed(ItemEntity itemEntity, CallbackInfo ci) { // TODO: Account for tnt in shulker and maybe boom power scales by stack size
+    public void onDestroyed(ItemEntity itemEntity, CallbackInfo ci) { // TODO: Account for tnt in shulker
 
+        // TODO: config file to add custom modded items
         if ((itemEntity.getItem().getItem() == Items.TNT || itemEntity.getItem().getItem() == Items.TNT_MINECART) && itemEntity.isOnFire()) {
             itemEntity.discard();
             if (!itemEntity.level().isClientSide) {
-                itemEntity.level().explode(null, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 1f, Level.ExplosionInteraction.TNT);
+
+                itemEntity.level().explode(null, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 1f + 0.75f * (float) Math.log(itemEntity.getItem().getCount()), Level.ExplosionInteraction.TNT);
             }
         }
     }
