@@ -4,6 +4,7 @@
   "package": "com.imjustdoom.itsstillexplosive.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CriterionRegistryAccessor",
     "ItemDestroyMixin"
   ],
   "injectors": {

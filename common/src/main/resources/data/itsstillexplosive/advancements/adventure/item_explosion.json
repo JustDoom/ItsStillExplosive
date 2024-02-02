@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:tnt"
+    },
+    "title": "BOOM!!",
+    "description": "Throw and explode an explosive item",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "explode": {
+      "trigger": "itsstillexplosive:item_explosion",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "explode"
+    ]
+  ]
+}
