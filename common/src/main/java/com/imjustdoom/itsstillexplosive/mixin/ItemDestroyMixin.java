@@ -20,12 +20,12 @@ public abstract class ItemDestroyMixin {
 
         if ((itemEntity.getItem().getItem() == Items.TNT
                 || itemEntity.getItem().getItem() == Items.TNT_MINECART
-                || itemEntity.getItem().getItem() == Items.GUNPOWDER)
+                || itemEntity.getItem().getItem() == Items.GUNPOWDER) // TODO: config for supported items and its multiplyer
                 && itemEntity.isOnFire()) {
             itemEntity.discard();
             if (!itemEntity.level().isClientSide) {
                 float base = itemEntity.getItem().getItem() == Items.GUNPOWDER ? 0.2f : 0.75f;
-                itemEntity.level().explode(null, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 1f + base * (float) Math.log(itemEntity.getItem().getCount()), Level.ExplosionInteraction.TNT);
+                itemEntity.level().explode(itemEntity.getOwner(), itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 1f + base * (float) Math.log(itemEntity.getItem().getCount()), Level.ExplosionInteraction.TNT);
 
                 if (itemEntity.getOwner() != null && itemEntity.getOwner() instanceof ServerPlayer) {
                     ItsStillExplosive.BOOM.trigger((ServerPlayer) itemEntity.getOwner());
